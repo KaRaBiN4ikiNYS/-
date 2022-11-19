@@ -1,0 +1,46 @@
+#include <iostream>
+
+
+bool in_arr(int* arr, int search_el) {
+    for (int i = 0; i < 12; ++i) {
+        if (arr[i] == search_el) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool its_glas(char ch) {
+    int arr_gl[12] = { 65, 69, 73, 79, 85, 89, 97, 101, 105, 111, 117, 121 };
+    if ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122)) {
+        if (in_arr(arr_gl, ch)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+void versus(char* str) {
+    int c_gl = 0;
+    int c_sg = 0;
+    for (int i = 0; str[i] != '\0'; ++i) {
+        if (its_glas(str[i])) {
+            c_gl++;
+        }
+        else {
+            c_sg++;
+        }
+    }
+    if (c_gl > c_sg) { std::cout << "glasni" << std::endl; }
+    else if (c_gl == c_sg) { std::cout << "nich" << std::endl; }
+    else { std::cout << "sog" << std::endl; }
+}
+
+
+int main()
+{
+    char str[] = "aasseEEEeRr";
+    versus(str);
+    
+}
